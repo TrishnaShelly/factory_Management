@@ -4,6 +4,11 @@
  */
 package com.mycompany.factorymanagement;
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,6 +19,7 @@ import javax.swing.JOptionPane;
 public class AdminPanel extends javax.swing.JFrame {
 
     EmployeeClass adminData;
+    ConnectionClass con = ConnectionClass.getInstance();
 
     /**
      * Creates new form AdminPanel
@@ -25,23 +31,86 @@ public class AdminPanel extends javax.swing.JFrame {
     public AdminPanel(EmployeeClass adminData) {
         initComponents();
         this.adminData = adminData;
-        String path = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\"
-                + "Task_Management\\src\\main\\java\\com\\mycompany\\task_management\\"
+        String path = "C:\\Users\\login\\OneDrive\\Documents\\NetBeansProjects"
+                + "\\FactoryManagement\\src\\main\\java\\com\\mycompany\\factorymanagement\\"
                 + "icons\\managers.png";
         ImageIcon icon = new ImageIcon(path);
         picm.setIcon(icon);
 
-        String path2 = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\"
-                + "Task_Management\\src\\main\\java\\com\\mycompany\\task_management\\"
-                + "icons\\employee.png";
+        String path2 = "C:\\Users\\login\\OneDrive\\Documents\\"
+                + "NetBeansProjects\\FactoryManagement\\src\\main\\java\\com"
+                + "\\mycompany\\factorymanagement\\icons\\employee.png";
         ImageIcon icon2 = new ImageIcon(path2);
         pice.setIcon(icon2);
 
-        String path3 = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\"
-                + "Task_Management\\src\\main\\java\\com\\mycompany\\task_management\\"
-                + "icons\\tasks.png";
+        String path3 = "C:\\Users\\login\\OneDrive\\Documents"
+                + "\\NetBeansProjects\\FactoryManagement\\src\\main"
+                + "\\java\\com\\mycompany\\factorymanagement\\icons\\product.png";
         ImageIcon icon3 = new ImageIcon(path3);
         pict.setIcon(icon3);
+        
+        String path4 = "C:\\Users\\login\\OneDrive\\Documents"
+                + "\\NetBeansProjects\\FactoryManagement\\src\\main"
+                + "\\java\\com\\mycompany\\factorymanagement\\icons\\Stock.png";
+        ImageIcon icon4 = new ImageIcon(path4);
+        pict1.setIcon(icon4);
+        try {
+               int count=0;
+
+            String sql ="SELECT ID FROM users WHERE role=?";
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ps.setInt(1,2);
+            ResultSet  rs = ps.executeQuery();
+            while(rs.next()){
+                count++;
+            }
+            numm.setText(String.valueOf(count));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+               int count=0;
+
+            String sql ="SELECT ID FROM users WHERE role=?";
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ps.setInt(1,3);
+            ResultSet  rs = ps.executeQuery();
+            while(rs.next()){
+                count++;
+            }
+            numf.setText(String.valueOf(count));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+               int count=0;
+
+            String sql ="SELECT ID FROM products ";
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ResultSet  rs = ps.executeQuery();
+            while(rs.next()){
+                count++;
+            }
+            nump.setText(String.valueOf(count));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         try {
+               int count=0;
+
+            String sql ="SELECT stock FROM stock ";
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ResultSet  rs = ps.executeQuery();
+            while(rs.next()){
+                count+=rs.getDouble("stock");
+            }
+            numt.setText(String.valueOf(count));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     /**
@@ -85,6 +154,9 @@ public class AdminPanel extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(883, 500));
 
+        pica.setBackground(new java.awt.Color(255, 255, 255));
+
+        picm.setBackground(new java.awt.Color(255, 255, 255));
         picm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 picmMouseClicked(evt);
@@ -95,21 +167,26 @@ public class AdminPanel extends javax.swing.JFrame {
         pica.setLayout(picaLayout);
         picaLayout.setHorizontalGroup(
             picaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(picm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(picm, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         picaLayout.setVerticalGroup(
             picaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(picm, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+            .addComponent(picm, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Managers");
 
+        numm.setBackground(new java.awt.Color(255, 255, 255));
         numm.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         numm.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numm.setText("jLabel5");
 
+        picb.setBackground(new java.awt.Color(255, 255, 255));
+
+        pice.setBackground(new java.awt.Color(255, 255, 255));
         pice.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 piceMouseClicked(evt);
@@ -120,21 +197,26 @@ public class AdminPanel extends javax.swing.JFrame {
         picb.setLayout(picbLayout);
         picbLayout.setHorizontalGroup(
             picbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         picbLayout.setVerticalGroup(
             picbLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pice, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Foremans");
 
+        numf.setBackground(new java.awt.Color(255, 255, 255));
         numf.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         numf.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numf.setText("jLabel5");
 
+        picc.setBackground(new java.awt.Color(255, 255, 255));
+
+        pict.setBackground(new java.awt.Color(255, 255, 255));
         pict.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 pictMouseClicked(evt);
@@ -145,24 +227,29 @@ public class AdminPanel extends javax.swing.JFrame {
         picc.setLayout(piccLayout);
         piccLayout.setHorizontalGroup(
             piccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pict, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+            .addComponent(pict, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         piccLayout.setVerticalGroup(
             piccLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pict, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pict, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
+        jLabel3.setBackground(new java.awt.Color(255, 255, 255));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Products");
 
+        nump.setBackground(new java.awt.Color(255, 255, 255));
         nump.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         nump.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         nump.setText("jLabel5");
 
+        numt.setBackground(new java.awt.Color(255, 255, 255));
         numt.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         numt.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         numt.setText("jLabel5");
+
+        picc1.setBackground(new java.awt.Color(255, 255, 255));
 
         pict1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -174,16 +261,16 @@ public class AdminPanel extends javax.swing.JFrame {
         picc1.setLayout(picc1Layout);
         picc1Layout.setHorizontalGroup(
             picc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pict1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pict1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         picc1Layout.setVerticalGroup(
             picc1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(pict1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pict1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         Stock.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         Stock.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Stock.setText("Tasks");
+        Stock.setText("Stock");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -202,14 +289,15 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addComponent(numf, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(picc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nump, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(nump, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(picc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(Stock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(picc1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(numt, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
+                    .addComponent(numt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(44, 44, 44))
         );
         jPanel1Layout.setVerticalGroup(
@@ -221,7 +309,7 @@ public class AdminPanel extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(picc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(picc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -232,8 +320,8 @@ public class AdminPanel extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(picb, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(pica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(pica, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -447,32 +535,33 @@ public class AdminPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu8MenuSelected
 
     private void picmMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_picmMouseClicked
-//        EmployeeTable addEmployee = new EmployeeTable(2, admindata);
-//        addEmployee.setVisible(true);
-//        this.dispose();
+EmployeeTable addEmployee = new EmployeeTable(2, adminData);
+        addEmployee.setVisible(true);
+        this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_picmMouseClicked
 
     private void piceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_piceMouseClicked
-//        EmployeeTable addEmployee = new EmployeeTable(3, admindata);
-//        addEmployee.setVisible(true);
-//        this.dispose();
+EmployeeTable addEmployee = new EmployeeTable(3, adminData);
+        addEmployee.setVisible(true);
+        this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_piceMouseClicked
 
     private void pictMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pictMouseClicked
-//        TaskTable task = new TaskTable(1, admindata);
-//
-//        task.setVisible(true);
-//        this.dispose();
+ProductTable employee = new ProductTable(adminData);
 
+                    employee.setVisible(true);
+                    this.dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_pictMouseClicked
 
     private void pict1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pict1MouseClicked
-        // TODO add your handling code here:
+ StockTable employee = new StockTable(adminData);
+                employee.setVisible(true);
+                this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_pict1MouseClicked
 
     /**

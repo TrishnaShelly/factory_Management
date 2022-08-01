@@ -82,6 +82,11 @@ public class StockTable extends javax.swing.JFrame {
         });
 
         jButton2.setText("Go back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -129,7 +134,7 @@ public class StockTable extends javax.swing.JFrame {
             AdminPanel admin = new AdminPanel(employeeData);
             admin.setVisible(true);
             this.dispose();
-        }else if (employeeData.getRole() == 3) {
+        } else if (employeeData.getRole() == 3) {
             ForemanPanel admin = new ForemanPanel(employeeData);
             admin.setVisible(true);
             this.dispose();
@@ -137,7 +142,7 @@ public class StockTable extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
-  DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) table.getModel();
         selectedRow = table.getSelectedRow();
         String i = dtm.getValueAt(selectedRow, 0).toString();
         //            System.out.println("ID is " + i);
@@ -150,6 +155,13 @@ public class StockTable extends javax.swing.JFrame {
         employee.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_tableMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        AddStock add = new AddStock(employeeData
+        );
+        add.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,7 +216,7 @@ public class StockTable extends javax.swing.JFrame {
             ResultSet resultSet = ps.executeQuery();
 //            System.out.println("Sucessfullt executed");
 
-            String[] headerName = {"ID", "Name","date", "stock"};
+            String[] headerName = {"ID", "Name", "date", "stock"};
             DefaultTableModel model = new DefaultTableModel(null, headerName);
             table.setModel(model);
             while (resultSet.next()) {
