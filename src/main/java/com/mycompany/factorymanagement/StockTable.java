@@ -126,19 +126,25 @@ public class StockTable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (employeeData.getRole() == 2) {
-            ManagerPanel manager = new ManagerPanel(employeeData);
-            manager.setVisible(true);
-            this.dispose();
-        } else if (employeeData.getRole() == 1) {
-            AdminPanel admin = new AdminPanel(employeeData);
-            admin.setVisible(true);
-            this.dispose();
-        } else if (employeeData.getRole() == 3) {
-            ForemanPanel admin = new ForemanPanel(employeeData);
-            admin.setVisible(true);
-            this.dispose();
-        }        // TODO add your handling code here:
+        switch (employeeData.getRole()) {
+            case 2 -> {
+                ManagerPanel manager = new ManagerPanel(employeeData);
+                manager.setVisible(true);
+                this.dispose();
+            }
+            case 1 ->                 {
+                    AdminPanel admin = new AdminPanel(employeeData);
+                    admin.setVisible(true);
+                    this.dispose();
+                }
+            case 3 ->                 {
+                    ForemanPanel admin = new ForemanPanel(employeeData);
+                    admin.setVisible(true);
+                    this.dispose();
+                } // TODO add your handling code here:
+            default -> {
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void tableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableMouseClicked
@@ -157,8 +163,7 @@ public class StockTable extends javax.swing.JFrame {
     }//GEN-LAST:event_tableMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        AddStock add = new AddStock(employeeData
-        );
+        AddStock add = new AddStock(employeeData);
         add.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
