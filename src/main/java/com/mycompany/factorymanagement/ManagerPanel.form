@@ -286,7 +286,7 @@
               <Font name="Segoe UI" size="14" style="0"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Add Foreman"/>
+            <Property name="text" type="java.lang.String" value="Sold Products "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="f1">

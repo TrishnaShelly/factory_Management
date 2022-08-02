@@ -11,7 +11,15 @@ package com.mycompany.factorymanagement;
 public class ProductClass {
     int id;
     String name;
+   double stock;
 
+    public double getStock() {
+        return stock;
+    }
+
+    public void setStock(double stock) {
+        this.stock = stock;
+    }
     public int getId() {
         return id;
     }

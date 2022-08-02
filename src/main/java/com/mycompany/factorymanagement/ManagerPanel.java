@@ -31,26 +31,18 @@ public class ManagerPanel extends javax.swing.JFrame {
     public ManagerPanel(EmployeeClass employeeData) {
         initComponents();
         this.employeeData = employeeData;
-        String path = "C:\\Users\\login\\OneDrive\\Documents\\NetBeansProjects"
-                + "\\FactoryManagement\\src\\main\\java\\com\\mycompany\\factorymanagement\\"
-                + "icons\\managers.png";
+        String path = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\factory_Management\\src\\main\\java\\com\\mycompany\\factorymanagement\\icons\\sold.png";
         ImageIcon icon = new ImageIcon(path);
         v.setIcon(icon);
-        String path2 = "C:\\Users\\login\\OneDrive\\Documents\\"
-                + "NetBeansProjects\\FactoryManagement\\src\\main\\java\\com"
-                + "\\mycompany\\factorymanagement\\icons\\employee.png";
+        String path2 = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\factory_Management\\src\\main\\java\\com\\mycompany\\factorymanagement\\icons\\employee.png";
         ImageIcon icon2 = new ImageIcon(path2);
         f.setIcon(icon2);
 
-        String path3 = "C:\\Users\\login\\OneDrive\\Documents"
-                + "\\NetBeansProjects\\FactoryManagement\\src\\main"
-                + "\\java\\com\\mycompany\\factorymanagement\\icons\\product.png";
+        String path3 = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\factory_Management\\src\\main\\java\\com\\mycompany\\factorymanagement\\icons\\product.png";
         ImageIcon icon3 = new ImageIcon(path3);
         p.setIcon(icon3);
 
-        String path4 = "C:\\Users\\login\\OneDrive\\Documents"
-                + "\\NetBeansProjects\\FactoryManagement\\src\\main"
-                + "\\java\\com\\mycompany\\factorymanagement\\icons\\Stock.png";
+        String path4 = "C:\\Users\\login\\OneDrive\\Documents\\GitHub\\factory_Management\\src\\main\\java\\com\\mycompany\\factorymanagement\\icons\\Stock.png";
         ImageIcon icon4 = new ImageIcon(path4);
         s.setIcon(icon4);
 
@@ -65,7 +57,7 @@ public class ManagerPanel extends javax.swing.JFrame {
                 count++;
             }
             f1.setText(String.valueOf(count));
-            v1.setText(String.valueOf(count));
+//            v1.setText(String.valueOf(count));
 
         } catch (SQLException ex) {
             Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,6 +73,19 @@ public class ManagerPanel extends javax.swing.JFrame {
                 count++;
             }
             p1.setText(String.valueOf(count));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            int count = 0;
+
+            String sql = "SELECT sold FROM sold ";
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+               count=(int) (count+rs.getDouble("sold"));
+            }
+            v1.setText(String.valueOf(count));
         } catch (SQLException ex) {
             Logger.getLogger(AdminPanel.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -219,7 +224,7 @@ public class ManagerPanel extends javax.swing.JFrame {
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("Add Foreman");
+        jLabel8.setText("Sold Products ");
 
         f1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         f1.setText("jLabel1");
@@ -446,7 +451,7 @@ public class ManagerPanel extends javax.swing.JFrame {
     }//GEN-LAST:event_sMouseClicked
 
     private void vMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_vMouseClicked
-        AddEmployee add = new AddEmployee(3, employeeData);
+        AddSold add = new AddSold(employeeData);
         add.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_vMouseClicked

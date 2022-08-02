@@ -23,12 +23,14 @@ import javax.swing.JOptionPane;
 public class AddStock extends javax.swing.JFrame {
 
     StockClass productData;
-    boolean isUpdate = false;
+    boolean isUpdate = false,deleted=false;
+    double d;
 //EmployeeClass data
     EmployeeClass employeeData = new EmployeeClass();
-    String simpleDate;
+    String simpleDate,select;
     ConnectionClass con = ConnectionClass.getInstance();
     ArrayList<String> pro = new ArrayList<>();
+    double quantity;
 
     /**
      * Creates new form AddStock
@@ -49,6 +51,7 @@ public class AddStock extends javax.swing.JFrame {
 
         String s = "SELECT name FROM products";
         try {
+            pro.clear();
             PreparedStatement p = con.connection.prepareStatement(s);
             ResultSet rs = p.executeQuery();
             while (rs.next()) {
@@ -72,7 +75,7 @@ public class AddStock extends javax.swing.JFrame {
 
     public AddStock(StockClass productData, EmployeeClass employeeData) {
         initComponents();
-         q1.setVisible(false);
+        q1.setVisible(false);
         isUpdate = true;
         add.setText("Update Product");
         view.setText("Delete Product");
@@ -277,19 +280,25 @@ public class AddStock extends javax.swing.JFrame {
     }//GEN-LAST:event_qKeyTyped
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (employeeData.getRole() == 2) {
-            ManagerPanel manager = new ManagerPanel(employeeData);
-            manager.setVisible(true);
-            this.dispose();
-        } else if (employeeData.getRole() == 1) {
-            AdminPanel manager = new AdminPanel(employeeData);
-            manager.setVisible(true);
-            this.dispose();
-        } else if (employeeData.getRole() == 3) {
-            ForemanPanel manager = new ForemanPanel(employeeData);
-            manager.setVisible(true);
-            this.dispose();
-        }        // TODO add your handling code here:
+        switch (employeeData.getRole()) {
+            case 2 ->                 {
+                    ManagerPanel manager = new ManagerPanel(employeeData);
+                    manager.setVisible(true);
+                    this.dispose();
+                }
+            case 1 ->                 {
+                    AdminPanel manager = new AdminPanel(employeeData);
+                    manager.setVisible(true);
+                    this.dispose();
+                }
+            case 3 ->                 {
+                    ForemanPanel manager = new ForemanPanel(employeeData);
+                    manager.setVisible(true);
+                    this.dispose();
+                } // TODO add your handling code here:
+            default -> {
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
@@ -302,18 +311,20 @@ public class AddStock extends javax.swing.JFrame {
             String str = "UPDATE stock SET name=?,stock=? WHERE ID=?";
             try {
                 PreparedStatement ps = con.connection.prepareStatement(str);
-                ps.setString(1, String.valueOf(product.getSelectedItem()));
+                select= String.valueOf(product.getSelectedItem());
+                ps.setString(1,select);
                 try {
+//                    d=Double.parseDouble(q.getText().trim()) - (productData.getStock());
+                    quantity= (Double.parseDouble(q.getText().trim()));
                     ps.setDouble(2, (Double.parseDouble(q.getText().trim())));
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this,"Please enter a Double ");
+                    JOptionPane.showMessageDialog(this, "Please enter a Double ");
                     return;
                 }
 //                ps.setDouble(2, (Double.parseDouble(q1.getText().trim())));
                 ps.setInt(3, productData.getId());
                 ps.execute();
                 JOptionPane.showMessageDialog(null, "updated sucessfully");
-               
 
             } catch (SQLException ex) {
                 Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
@@ -324,16 +335,17 @@ public class AddStock extends javax.swing.JFrame {
             PreparedStatement ps;
             try {
                 ps = con.connection.prepareStatement(sql);
+                select= String.valueOf(product.getSelectedItem());
                 ps.setString(1, String.valueOf(product.getSelectedItem()));
                 ps.setString(2, simpleDate);
-               try {
-                    ps.setDouble(3, (Double.parseDouble(q.getText().trim())));
+                try {
+                    quantity=Double.parseDouble(q.getText().trim());
+                    ps.setDouble(3, (quantity));
                 } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(this,"Please enter a Double ");
+                    JOptionPane.showMessageDialog(this, "Please enter a Double ");
                     return;
                 }
                 ps.execute();
-//                    System.out.println("Added employee sucessfully");
                 JOptionPane.showMessageDialog(null, "added sucessfully");
 
             } catch (SQLException ex) {
@@ -341,20 +353,70 @@ public class AddStock extends javax.swing.JFrame {
             }
 
         }
-         StockTable employee = new StockTable(employeeData);
-                employee.setVisible(true);
-                this.dispose();
-// TODO add your handling code here:
+        up();
+        StockTable employee = new StockTable(employeeData);
+                    employee.setVisible(true);
+                    this.dispose();
+     
+       
+
     }//GEN-LAST:event_addActionPerformed
 
+     public void up(){
+        String sql = "SELECT * FROM products";
+        try {
+            PreparedStatement ps = con.connection.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int id =(rs.getInt("ID"));   
+                if (select.equals(rs.getString("name"))) {
+                    String sql2 = "UPDATE  products SET stock=? WHERE ID =?";
+
+                    PreparedStatement ps2 = con.connection.prepareStatement(sql2);
+                    if(!isUpdate){
+                    ps2.setDouble(1, (quantity) + rs.getDouble("stock"));}
+                    else if(deleted){
+                        ps2.setDouble(1,rs.getDouble("stock")-quantity); 
+                    }
+                    else{
+                        double value=rs.getDouble("stock")-productData.getStock() ;
+                        System.out.println(value);
+                        System.out.println(quantity);
+                     ps2.setDouble(1,value+quantity);   
+                    }
+                    ps2.setInt(2, id);
+                    ps2.execute();
+                    
+// TODO add your handling c
+                }
+            }
+
+            // TODO add your handling code here:
+        } catch (SQLException ex) {
+            Logger.getLogger(AddProduct.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    
     private void viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewActionPerformed
         if (isUpdate) {
             try {
+                select=productData.getName();
                 String sql = "DELETE FROM stock WHERE id=?";
                 PreparedStatement preparedStatement2 = con.connection.prepareStatement(sql);
                 preparedStatement2.setInt(1, productData.getId());
                 preparedStatement2.execute();
                 JOptionPane.showMessageDialog(null, "deleted sucessfully");
+                deleted=true;
+                quantity=productData.getStock();
+                up();
+//                String sql2 = "UPDATE  products SET stock=? WHERE ID =?";
+//
+//                    PreparedStatement ps2 = con.connection.prepareStatement(sql2);
+////                    if(!isUpdate){
+//                    ps2.setDouble(1,);//}
+//                   
+//                    ps2.setInt(2, productData.getId());
+//                    ps2.execute();
                 StockTable employee = new StockTable(employeeData);
 
                 employee.setVisible(true);
@@ -369,10 +431,10 @@ public class AddStock extends javax.swing.JFrame {
 //            employee.setVisible(true);
 //            this.dispose();
         }
-        
-         StockTable employee = new StockTable(employeeData);
-                employee.setVisible(true);
-                this.dispose();
+
+        StockTable employee = new StockTable(employeeData);
+        employee.setVisible(true);
+        this.dispose();
 
         // TODO add your handling code here:
     }//GEN-LAST:event_viewActionPerformed

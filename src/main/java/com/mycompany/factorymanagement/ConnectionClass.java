@@ -34,7 +34,8 @@ public class ConnectionClass {
                 ps.execute();
                 System.out.println("Created table addEmplooye successfully");
                   
-                String sql2="CREATE TABLE IF NOT EXISTS products (ID INT NOT NULL AUTO_INCREMENT ,name VARCHAR(255) NOT NULL,"
+                String sql2="CREATE TABLE IF NOT EXISTS products (ID INT NOT NULL AUTO_INCREMENT ,"
+                        + "name VARCHAR(255) NOT NULL,stock double,"
                         + " PRIMARY KEY(ID))";
                 PreparedStatement ps2 = connection.prepareStatement(sql2);
               if(     ps2.executeUpdate()>0) {
@@ -42,7 +43,8 @@ public class ConnectionClass {
               } else {
               }
               
-              String sql3="CREATE TABLE IF NOT EXISTS stock (ID INT NOT NULL AUTO_INCREMENT ,name VARCHAR(255) NOT NULL,"
+              String sql3="CREATE TABLE IF NOT EXISTS stock (ID INT NOT NULL AUTO_INCREMENT ,"
+                      + "name VARCHAR(255) NOT NULL,"
                       + "date VARCHAR(255) NOT NULL , stock double ,"
                         + " PRIMARY KEY(ID))";
                 PreparedStatement ps3 = connection.prepareStatement(sql3);
@@ -51,14 +53,16 @@ public class ConnectionClass {
               } else {
               }
               
-//              String sql4 = "CREATE TABLE IF NOT EXISTS status ( ID INT NOT NULL AUTO_INCREMENT ,"
-//                      + "taskID INT NOT NULL ,"
-//                      + "complete INT ,"   // 1 for completed 
-//                      + "PRIMARY KEY(ID) )";
-//                PreparedStatement ps3 = connection.prepareStatement(sql3);
-//                ps3.execute();
-//                System.out.println("Created table status "
-//                        + " successfully");
+              String sql4 = "CREATE TABLE IF NOT EXISTS sold ( ID INT NOT NULL AUTO_INCREMENT ,"
+                      + "productID INT NOT NULL ,"
+                      + "sold double NOT NULL,"
+                      + "date varchar(255) NOT NULL,"
+                      + "company VARCHAR(255) NOT NULL,"   // 1 for completed 
+                      + "PRIMARY KEY(ID) )";
+                PreparedStatement ps4 = connection.prepareStatement(sql4);
+                ps4.execute();
+                System.out.println("Created table sold stock  "
+                        + " successfully");
                 
             }
         } catch (SQLException ex) {

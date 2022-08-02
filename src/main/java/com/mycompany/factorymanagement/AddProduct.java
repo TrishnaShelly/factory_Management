@@ -5,6 +5,7 @@
 package com.mycompany.factorymanagement;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -215,20 +216,12 @@ public class AddProduct extends javax.swing.JFrame {
                 ProductTable employee = new ProductTable(data);
                 employee.setVisible(true);
                 this.dispose();
-
-////                    this.dispose();
-//                    } else if (managerData.getRole() == 1) {,
-//                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
-//                        employee.setVisible(true);
-//                        this.dispose();
-////                    this.dispose();
-//                    }
             } catch (SQLException ex) {
                 Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-
-        // TODO add your handling code here:
+        
+       
     }//GEN-LAST:event_addActionPerformed
 
     private void deleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteActionPerformed

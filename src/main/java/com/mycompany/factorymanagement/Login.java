@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
         } else if (role == 2) {
             heading.setText("LOGIN AS A MANAGER");
         } else if (role == 3) {
-            heading.setText("LOGIN AS A EMPLOYEE");
+            heading.setText("LOGIN AS A FOREMAN");
         }
     }
 
