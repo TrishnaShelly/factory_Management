@@ -22,7 +22,8 @@ import javax.swing.JOptionPane;
  * @author login
  */
 public class AddEmployee extends javax.swing.JFrame {
-     int lenght=0;
+
+    int lenght = 0;
     String ch = new String();
     boolean table = true;
     boolean isUpdate = false;
@@ -180,23 +181,24 @@ public class AddEmployee extends javax.swing.JFrame {
         age = new javax.swing.JTextField();
         name = new javax.swing.JTextField();
         address = new javax.swing.JTextField();
-        btnDelete = new javax.swing.JButton();
         password = new javax.swing.JPasswordField();
-        btnAdd = new javax.swing.JButton();
         name1 = new javax.swing.JLabel();
         contact1 = new javax.swing.JLabel();
         email1 = new javax.swing.JLabel();
         age1 = new javax.swing.JLabel();
         password1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        button1 = new com.mycompany.factorymanagement.Button();
+        btnDelete = new com.mycompany.factorymanagement.Button();
+        btnAdd = new com.mycompany.factorymanagement.Button();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(117, 12, 117));
 
-        heading.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        heading.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        heading.setForeground(new java.awt.Color(255, 255, 255));
         heading.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         heading.setText("Add ForeMan");
 
@@ -259,13 +261,6 @@ public class AddEmployee extends javax.swing.JFrame {
             }
         });
 
-        btnDelete.setText("Delete  Foreman");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
@@ -274,13 +269,6 @@ public class AddEmployee extends javax.swing.JFrame {
         password.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 passwordKeyTyped(evt);
-            }
-        });
-
-        btnAdd.setText("Add Foreman");
-        btnAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddActionPerformed(evt);
             }
         });
 
@@ -299,10 +287,33 @@ public class AddEmployee extends javax.swing.JFrame {
 
         password1.setText("jLabel9");
 
-        jButton1.setText("Return to Home ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        button1.setBackground(new java.awt.Color(117, 12, 117));
+        button1.setForeground(new java.awt.Color(255, 255, 255));
+        button1.setText("Return To Home ");
+        button1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                button1ActionPerformed(evt);
+            }
+        });
+
+        btnDelete.setBackground(new java.awt.Color(117, 12, 117));
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete Foreman");
+        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnAdd.setBackground(new java.awt.Color(117, 12, 117));
+        btnAdd.setForeground(new java.awt.Color(255, 255, 255));
+        btnAdd.setText("Add Foreman");
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
             }
         });
 
@@ -315,28 +326,22 @@ public class AddEmployee extends javax.swing.JFrame {
                 .addGap(100, 100, 100)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(contactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addComponent(contactNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(contact1))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addComponent(name, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(217, 217, 217)
                                 .addComponent(name1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -345,18 +350,29 @@ public class AddEmployee extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(emailId, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
+                                .addComponent(emailId, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                             .addComponent(password1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
                             .addComponent(email1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE))
-                            .addComponent(age1, javax.swing.GroupLayout.Alignment.TRAILING))))
+                                .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
+                            .addComponent(age1, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(password, javax.swing.GroupLayout.DEFAULT_SIZE, 516, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 130, Short.MAX_VALUE)
+                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(100, 100, 100))
         );
         jPanel1Layout.setVerticalGroup(
@@ -395,10 +411,10 @@ public class AddEmployee extends javax.swing.JFrame {
                     .addComponent(password1))
                 .addGap(100, 100, 100)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(69, Short.MAX_VALUE))
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -411,165 +427,12 @@ public class AddEmployee extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1)
-                .addGap(0, 0, 0))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
 
-        setSize(new java.awt.Dimension(865, 581));
+        setSize(new java.awt.Dimension(865, 554));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-        try {
-            // TODO add your handling code here:
-            String sql = "DELETE FROM users WHERE id=?";
-            PreparedStatement preparedStatement2 = con.connection.prepareStatement(sql);
-            preparedStatement2.setInt(1, employeeData.getId());
-//            preparedStatement2.execute/();
-            if (preparedStatement2.executeUpdate() > 0) {
-//                System.out.println("deleted successfully");
-                JOptionPane.showMessageDialog(null, "deleted sucessfully");
-                System.out.println("desti inside add  delete employeetable" + desti);
-
-                if (desti == 2) {
-                    if (table) {
-                        EmployeeTable employee = new EmployeeTable(3, managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-                    } else {
-                        UsersTAble t = new UsersTAble(managerData);
-                        t.setVisible(true);
-                        this.dispose();
-                    }
-//                    this.dispose();
-                } else if (desti == 1) {
-                    if (table) {
-                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-                    } else {
-                        UsersTAble t = new UsersTAble(managerData);
-                        t.setVisible(true);
-                        this.dispose();
-                    }
-
-//                    this.dispose();
-                }
-            } else {
-                JOptionPane.showMessageDialog(null, " sorry not able to delete");
-
-//                System.out.println("Sorry don't  deleted");
-            }
-
-        } catch (SQLException ex) {
-//            System.out.println("exception in addEmployeer delete action " + ex);
-            Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
-    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        int num =contactNumber.getText().length();
-        if (name.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Please enter name ");
-        } else if (address.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Please enter address ");
-        } else if (emailId.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Please enter email ");
-        } else if (password.getText().equals("")) {
-            JOptionPane.showMessageDialog(this, "Please enter password ");
-        } else if (contactNumber.getText().equals("") || num !=10) {
-            JOptionPane.showMessageDialog(this, "Please enter contact number ");
-        } else if (age.getText().equals("")){
-            JOptionPane.showMessageDialog(this, "Please enter age  ");
-        }else if (!isValidEmailID(ch) && !isUpdate) {
-            JOptionPane.showMessageDialog(this, "Please enter valid email");
-
-            email1.setVisible(true);
-            email1.setText("please enter a valid email");
-        } else {
-            if (!isUpdate) {
-
-                String sql = "INSERT INTO users (name, joiningDate, age, address, email, password, contactNumber,"
-                        + "role) VALUES(?,?,?,?,?,?,?,?)";
-                try {
-                    PreparedStatement ps = con.connection.prepareStatement(sql);
-                    ps.setString(1, name.getText().trim());
-                    ps.setString(2, simpleDate);
-                    ps.setInt(3, Integer.parseInt(age.getText().trim()));
-                    ps.setString(4, address.getText().trim());
-                    ps.setString(5, emailId.getText().trim());
-                    ps.setString(6, password.getText().trim());
-                    ps.setString(7, contactNumber.getText().trim());
-                    ps.setInt(8, role);
-                    ps.execute();
-//                    System.out.println("Added employee sucessfully");
-                    JOptionPane.showMessageDialog(null, "added sucessfully");
-//                    if (managerData.getRole() == 2) {
-                    if (table) {
-                        EmployeeTable employee = new EmployeeTable(role, managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-                    } else {
-                        UsersTAble employee = new UsersTAble(managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-                    }
-////                    this.dispose();
-//                    } else if (managerData.getRole() == 1) {,
-//                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
-//                        employee.setVisible(true);
-//                        this.dispose();
-////                    this.dispose();
-//                    }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            } else {
-                String str = "UPDATE users SET name=?,age=?,address=?,email=?,password=?,contactNumber=? WHERE ID=?";
-                try {
-                    PreparedStatement ps = con.connection.prepareStatement(str);
-                    ps.setString(1, name.getText().trim());
-//                ps.setString(2, simpleDate);
-                    ps.setInt(2, Integer.parseInt(age.getText().trim()));
-                    ps.setString(3, address.getText().trim());
-                    ps.setString(4, emailId.getText().trim());
-                    ps.setString(5, password.getText().trim());
-                    ps.setString(6, contactNumber.getText().trim());
-//                    ps.setString(7, a.dharNumber.getText().trim());
-                    ps.setInt(7, employeeData.getId());
-                    ps.execute();
-                    JOptionPane.showMessageDialog(null, "updated sucessfully");
-
-//                    System.out.println("Updated sucessfully");
-                   if(table){ if (desti == 2) {
-                        EmployeeTable employee = new EmployeeTable(3, managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-//                    this.dispose();
-                    } else if (desti == 1) {
-                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-//                    this.dispose();
-                    }}
-                 else {
-                        UsersTAble employee = new UsersTAble(managerData);
-                        employee.setVisible(true);
-                        this.dispose();
-                    }
-
-                } catch (SQLException ex) {
-                    Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-
-        }
-    }//GEN-LAST:event_btnAddActionPerformed
 
     private void emailIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailIdActionPerformed
         // TODO add your handling code here:
@@ -619,8 +482,9 @@ public class AddEmployee extends javax.swing.JFrame {
             contact1.setVisible(true);
             contact1.setText("Invalid Character " + ch);
             evt.consume();
-        } if(lenght==10){
-             contact1.setVisible(true);
+        }
+        if (lenght == 10) {
+            contact1.setVisible(true);
             contact1.setText("Valid Number ");
         }
         // TODO add your handling code here:
@@ -647,7 +511,15 @@ public class AddEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordKeyTyped
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void contactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contactNumberActionPerformed
+
+    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         if (desti == 2) {
             ManagerPanel manager = new ManagerPanel(managerData);
             manager.setVisible(true);
@@ -656,16 +528,159 @@ public class AddEmployee extends javax.swing.JFrame {
             AdminPanel admin = new AdminPanel(managerData);
             admin.setVisible(true);
             this.dispose();
-        } // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
-    private void contactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactNumberActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_contactNumberActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+ try {
+            // TODO add your handling code here:
+            String sql = "DELETE FROM users WHERE id=?";
+            PreparedStatement preparedStatement2 = con.connection.prepareStatement(sql);
+            preparedStatement2.setInt(1, employeeData.getId());
+//            preparedStatement2.execute/();
+            if (preparedStatement2.executeUpdate() > 0) {
+//                System.out.println("deleted successfully");
+                JOptionPane.showMessageDialog(null, "deleted sucessfully");
+                System.out.println("desti inside add  delete employeetable" + desti);
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+                if (desti == 2) {
+                    if (table) {
+                        EmployeeTable employee = new EmployeeTable(3, managerData);
+                        employee.setVisible(true);
+                        this.dispose();
+                    } else {
+                        UsersTAble t = new UsersTAble(managerData);
+                        t.setVisible(true);
+                        this.dispose();
+                    }
+//                    this.dispose();
+                } else if (desti == 1) {
+                    if (table) {
+                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
+                        employee.setVisible(true);
+                        this.dispose();
+                    } else {
+                        UsersTAble t = new UsersTAble(managerData);
+                        t.setVisible(true);
+                        this.dispose();
+                    }
+
+//                    this.dispose();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, " sorry not able to delete");
+
+//                System.out.println("Sorry don't  deleted");
+            }
+
+        } catch (SQLException ex) {
+//            System.out.println("exception in addEmployeer delete action " + ex);
+            Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+ int num = contactNumber.getText().length();
+        if (name.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please enter name ");
+        } else if (address.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please enter address ");
+        } else if (emailId.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please enter email ");
+        } else if (password.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please enter password ");
+        } else if (contactNumber.getText().equals("") || num != 10) {
+            JOptionPane.showMessageDialog(this, "Please enter contact number ");
+        } else if (age.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Please enter age  ");
+        } else if (!isValidEmailID(ch) && !isUpdate) {
+            JOptionPane.showMessageDialog(this, "Please enter valid email");
+
+            email1.setVisible(true);
+            email1.setText("please enter a valid email");
+        } else {
+            if (!isUpdate) {
+
+                String sql = "INSERT INTO users (name, joiningDate, age, address, email, password, contactNumber,"
+                + "role) VALUES(?,?,?,?,?,?,?,?)";
+                try {
+                    PreparedStatement ps = con.connection.prepareStatement(sql);
+                    ps.setString(1, name.getText().trim());
+                    ps.setString(2, simpleDate);
+                    ps.setInt(3, Integer.parseInt(age.getText().trim()));
+                    ps.setString(4, address.getText().trim());
+                    ps.setString(5, emailId.getText().trim());
+                    ps.setString(6, password.getText().trim());
+                    ps.setString(7, contactNumber.getText().trim());
+                    ps.setInt(8, role);
+                    ps.execute();
+                    //                    System.out.println("Added employee sucessfully");
+                    JOptionPane.showMessageDialog(null, "added sucessfully");
+                    //                    if (managerData.getRole() == 2) {
+                        if (table) {
+                            EmployeeTable employee = new EmployeeTable(role, managerData);
+                            employee.setVisible(true);
+                            this.dispose();
+                        } else {
+                            UsersTAble employee = new UsersTAble(managerData);
+                            employee.setVisible(true);
+                            this.dispose();
+                        }
+                        ////                    this.dispose();
+                        //                    } else if (managerData.getRole() == 1) {,
+                        //                        EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
+                        //                        employee.setVisible(true);
+                        //                        this.dispose();
+                        ////                    this.dispose();
+                        //                    }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                String str = "UPDATE users SET name=?,age=?,address=?,email=?,password=?,contactNumber=? WHERE ID=?";
+                try {
+                    PreparedStatement ps = con.connection.prepareStatement(str);
+                    ps.setString(1, name.getText().trim());
+                    //                ps.setString(2, simpleDate);
+                    ps.setInt(2, Integer.parseInt(age.getText().trim()));
+                    ps.setString(3, address.getText().trim());
+                    ps.setString(4, emailId.getText().trim());
+                    ps.setString(5, password.getText().trim());
+                    ps.setString(6, contactNumber.getText().trim());
+                    //                    ps.setString(7, a.dharNumber.getText().trim());
+                    ps.setInt(7, employeeData.getId());
+                    ps.execute();
+                    JOptionPane.showMessageDialog(null, "updated sucessfully");
+
+                    //                    System.out.println("Updated sucessfully");
+                    if (table) {
+                        if (desti == 2) {
+                            EmployeeTable employee = new EmployeeTable(3, managerData);
+                            employee.setVisible(true);
+                            this.dispose();
+                            //                    this.dispose();
+                        } else if (desti == 1) {
+                            EmployeeTable employee = new EmployeeTable(employeeData.getRole(), managerData);
+                            employee.setVisible(true);
+                            this.dispose();
+                            //                    this.dispose();
+                        }
+                    } else {
+                        UsersTAble employee = new UsersTAble(managerData);
+                        employee.setVisible(true);
+                        this.dispose();
+                    }
+
+                } catch (SQLException ex) {
+                    Logger.getLogger(AddEmployee.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -707,14 +722,14 @@ public class AddEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField address;
     private javax.swing.JTextField age;
     private javax.swing.JLabel age1;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
+    private com.mycompany.factorymanagement.Button btnAdd;
+    private com.mycompany.factorymanagement.Button btnDelete;
+    private com.mycompany.factorymanagement.Button button1;
     private javax.swing.JLabel contact1;
     private javax.swing.JTextField contactNumber;
     private javax.swing.JLabel email1;
     private javax.swing.JTextField emailId;
     private javax.swing.JLabel heading;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

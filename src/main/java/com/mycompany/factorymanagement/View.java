@@ -63,11 +63,11 @@ public class View extends javax.swing.JFrame {
         email = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         password = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         password1 = new javax.swing.JLabel();
+        button1 = new com.mycompany.factorymanagement.Button();
+        button2 = new com.mycompany.factorymanagement.Button();
 
         jLabel12.setText("Name;");
 
@@ -103,16 +103,11 @@ public class View extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("return to Home ");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jPanel3.setBackground(new java.awt.Color(117, 12, 117));
 
-        jPanel3.setBackground(new java.awt.Color(0, 255, 255));
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setBackground(new java.awt.Color(117, 12, 117));
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("YOUR PROFILE ");
 
@@ -129,23 +124,37 @@ public class View extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 58, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton2.setText("Change Password ");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        password1.setText("jLabel3");
+
+        button1.setBackground(new java.awt.Color(117, 12, 117));
+        button1.setForeground(new java.awt.Color(255, 255, 255));
+        button1.setText("Go To Home");
+        button1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        button1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                button1ActionPerformed(evt);
             }
         });
 
-        password1.setText("jLabel3");
+        button2.setBackground(new java.awt.Color(117, 12, 117));
+        button2.setForeground(new java.awt.Color(255, 255, 255));
+        button2.setText("Change Password");
+        button2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        button2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout passwordqLayout = new javax.swing.GroupLayout(passwordq);
         passwordq.setLayout(passwordqLayout);
         passwordqLayout.setHorizontalGroup(
             passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(passwordqLayout.createSequentialGroup()
                 .addGap(110, 110, 110)
                 .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,31 +172,30 @@ public class View extends javax.swing.JFrame {
                             .addGroup(passwordqLayout.createSequentialGroup()
                                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButton2)
-                                    .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(password1)
-                                        .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 43, Short.MAX_VALUE)))
+                                .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(password1, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(password, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
+                                    .addComponent(button2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 56, Short.MAX_VALUE)))
                 .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(passwordqLayout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(number, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(passwordqLayout.createSequentialGroup()
                         .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(30, 30, 30)
-                        .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                            .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)))
-                    .addGroup(passwordqLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(number, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(passwordqLayout.createSequentialGroup()
+                                .addGap(30, 30, 30)
+                                .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(age, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                                    .addComponent(address, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
+                            .addGroup(passwordqLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(110, 110, 110))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, passwordqLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         passwordqLayout.setVerticalGroup(
             passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,17 +221,13 @@ public class View extends javax.swing.JFrame {
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(age, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(passwordqLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(jButton1)
-                        .addContainerGap(64, Short.MAX_VALUE))
-                    .addGroup(passwordqLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(password1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addGap(39, 39, 39))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(password1)
+                .addGap(26, 26, 26)
+                .addGroup(passwordqLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(passwordq);
@@ -232,19 +236,42 @@ public class View extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 724, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 416, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//System.out.println("inside "+ data.getRole());     
+    private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
+        password1.setVisible(false);
+        char ch = evt.getKeyChar();
+        int length = password.getText().length();
+
+        if (length > 0 && length < 5) {
+            password1.setVisible(true);
+            password1.setText("weak password");
+        } else if (length >= 5 && length <= 8) {
+            password1.setVisible(true);
+            password1.setText("average password");
+
+        } else if (length > 8) {
+
+            password1.setVisible(true);
+            password1.setText("strong password");
+
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_passwordKeyTyped
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
         if (data.getRole() == 2) {
             ManagerPanel manager = new ManagerPanel(data);
             manager.setVisible(true);
@@ -253,16 +280,15 @@ public class View extends javax.swing.JFrame {
             AdminPanel manager = new AdminPanel(data);
             manager.setVisible(true);
             this.dispose();
-        }else if (data.getRole() == 3) {
+        } else if (data.getRole() == 3) {
             ForemanPanel manager = new ForemanPanel(data);
             manager.setVisible(true);
             this.dispose();
-        }
-// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (password.getText().equals("")) {
+    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+ if (password.getText().equals("")) {
             JOptionPane.showMessageDialog(this, "please enter password");
         } else {
             String str = "UPDATE users SET password=? WHERE ID=?";
@@ -286,29 +312,8 @@ public class View extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void passwordKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyTyped
-        password1.setVisible(false);
-        char ch = evt.getKeyChar();
-        int length = password.getText().length();
-
-        if (length > 0 && length < 5) {
-            password1.setVisible(true);
-            password1.setText("weak password");
-        } else if (length >= 5 && length <= 8) {
-            password1.setVisible(true);
-            password1.setText("average password");
-
-        } else if (length > 8) {
-
-            password1.setVisible(true);
-            password1.setText("strong password");
-
         }        // TODO add your handling code here:
-    }//GEN-LAST:event_passwordKeyTyped
+    }//GEN-LAST:event_button2ActionPerformed
 
     /**
      * @param args the JOptionPane.showMA line arguments
@@ -349,9 +354,9 @@ public class View extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel address;
     private javax.swing.JLabel age;
+    private com.mycompany.factorymanagement.Button button1;
+    private com.mycompany.factorymanagement.Button button2;
     private javax.swing.JLabel email;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

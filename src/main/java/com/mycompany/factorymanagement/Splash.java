@@ -19,11 +19,11 @@ public class Splash extends javax.swing.JFrame {
      */
     public Splash() {
         initComponents();
-        String path = "C:\\Users\\login\\OneDrive\\Documents"
-                + "\\NetBeansProjects\\FactoryManagement\\src\\main\\"
-                + "java\\com\\mycompany\\factorymanagement\\icons\\splash.jpg";
-        ImageIcon icon = new ImageIcon(path);
-        pic.setIcon(icon);
+//        String path = "C:\\Users\\login\\OneDrive\\Documents"
+//                + "\\NetBeansProjects\\FactoryManagement\\src\\main\\"
+//                + "java\\com\\mycompany\\factorymanagement\\icons\\splash.jpg";
+//        ImageIcon icon = new ImageIcon(path);
+//        pic.setIcon(icon);
 //                setIconImage(new ImageIcon(getClass().getResource("C:\\Users\\login\\OneDrive\\Documents\\GitHub\\"
 //                + "Task_Management\\src\\main\\java\\com\\mycompany\\task_management\\"
 //                + "icons\\tasks.png")).getImage());
@@ -39,77 +39,73 @@ public class Splash extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        bar = new javax.swing.JProgressBar();
-        progress = new javax.swing.JLabel();
+        gradientPanel1 = new com.mycompany.factorymanagement.GradientPanel();
+        imageAvatar1 = new com.mycompany.factorymanagement.ImageAvatar();
         jLabel1 = new javax.swing.JLabel();
-        pic = new javax.swing.JLabel();
+        bar = new com.mycompany.factorymanagement.ProgressBarCustom();
+        progress = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        gradientPanel1.setBackground(new java.awt.Color(252, 153, 214));
 
-        bar.setBackground(new java.awt.Color(0, 204, 204));
-        bar.setForeground(new java.awt.Color(0, 0, 0));
+        imageAvatar1.setIcon(new javax.swing.ImageIcon("C:\\Users\\login\\OneDrive\\Documents\\GitHub\\factory_Management\\src\\main\\java\\com\\mycompany\\factorymanagement\\icons\\ss.jpg")); // NOI18N
 
-        progress.setBackground(new java.awt.Color(0, 0, 0));
-        progress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        progress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        progress.setText("0 %");
-
-        jLabel1.setBackground(new java.awt.Color(236, 236, 252));
+        jLabel1.setBackground(new java.awt.Color(117, 12, 117));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("WELCOME TO FACTORY MANAGEMENT");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(270, 270, 270)
-                        .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 237, Short.MAX_VALUE)))
+        bar.setForeground(new java.awt.Color(255, 204, 255));
+
+        progress.setBackground(new java.awt.Color(0, 0, 0));
+        progress.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        progress.setForeground(new java.awt.Color(255, 204, 255));
+        progress.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        progress.setText("0 %");
+
+        javax.swing.GroupLayout gradientPanel1Layout = new javax.swing.GroupLayout(gradientPanel1);
+        gradientPanel1.setLayout(gradientPanel1Layout);
+        gradientPanel1Layout.setHorizontalGroup(
+            gradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(gradientPanel1Layout.createSequentialGroup()
+                .addGap(192, 192, 192)
+                .addGroup(gradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(192, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gradientPanel1Layout.createSequentialGroup()
+                .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(313, 313, 313)
-                .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(162, Short.MAX_VALUE)
-                .addComponent(pic, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+        gradientPanel1Layout.setVerticalGroup(
+            gradientPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gradientPanel1Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(imageAvatar1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bar, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(progress)
-                .addGap(25, 25, 25))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gradientPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        setSize(new java.awt.Dimension(820, 550));
+        setSize(new java.awt.Dimension(654, 360));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -165,10 +161,10 @@ public class Splash extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar bar;
+    private com.mycompany.factorymanagement.ProgressBarCustom bar;
+    private com.mycompany.factorymanagement.GradientPanel gradientPanel1;
+    private com.mycompany.factorymanagement.ImageAvatar imageAvatar1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel pic;
     private javax.swing.JLabel progress;
     // End of variables declaration//GEN-END:variables
 }
